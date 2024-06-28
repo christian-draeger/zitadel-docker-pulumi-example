@@ -14,4 +14,7 @@ FirstInstance:
       Email:
         Verified: true
       PreferredLanguage: en
-
+    Machine:
+      Machine:
+        UserName: admin-sa
+        Name: admin-sa
