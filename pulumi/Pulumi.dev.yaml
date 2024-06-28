@@ -1,1 +1,6 @@
 encryptionsalt: v1:3+NvibnLgN0=:v1:3ZkFbqV1yNyf2nrI:+MRPwS+O5N/S0nndVIlRwMadVLhKnQ==
+config:
+  zitadel:domain: localhost
+  zitadel:insecure: "true"
+  zitadel:jwtProfileFile: ../zitadel/machine-key.json
+  zitadel:port: "8080"
