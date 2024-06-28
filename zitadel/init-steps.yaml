@@ -1,0 +1,17 @@
+FirstInstance:
+  # If set to true zitadel is setup without initial data
+  Skip: false
+  InstanceName: ZITADEL
+  DefaultLanguage: en
+  Org:
+    Name: MyTestOrg
+    Human:
+      UserName: admin
+      Password: Password1!
+      PasswordChangeRequired: false
+      FirstName: Admin
+      LastName: Admin
+      Email:
+        Verified: true
+      PreferredLanguage: en
+
