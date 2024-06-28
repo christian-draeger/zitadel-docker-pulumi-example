@@ -8,6 +8,7 @@ services:
     volumes:
       - "./zitadel/defaults.yaml:/config.yaml:ro"
       - "./zitadel/init-steps.yaml:/init-steps.yaml:ro"
+      - "./zitadel/machine-key.json:/machinekey/zitadel-admin-sa.json:ro"
     depends_on:
       db:
         condition: 'service_healthy'

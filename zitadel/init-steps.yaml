@@ -18,3 +18,6 @@ FirstInstance:
       Machine:
         UserName: admin-sa
         Name: admin-sa
+      MachineKey:
+        Path: /machinekey/zitadel-admin-sa.json
+        Type: 1
