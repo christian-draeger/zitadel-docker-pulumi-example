@@ -3,17 +3,27 @@ services:
     restart: 'always'
     networks:
       - 'internal'
-    image: 'ghcr.io/zitadel/zitadel:v2.56.0-rc.2'
-    command: 'start-from-init --config /config.yaml --steps /init-steps.yaml --masterkey "MasterkeyNeedsToHave32Characters" --tlsMode disabled'
+    image: 'ghcr.io/zitadel/zitadel:v2.56.0-rc.1'
+    command: >
+      start-from-init
+      --config /zitadel/config/defaults.yaml
+      --steps /zitadel/config/init-steps.yaml
+      --masterkeyFile /zitadel/secrets/masterkey.txt
+      --tlsMode disabled
     volumes:
-      - "./zitadel/defaults.yaml:/config.yaml:ro"
-      - "./zitadel/init-steps.yaml:/init-steps.yaml:ro"
-      - "./zitadel/machine-key.json:/machinekey/zitadel-admin-sa.json:ro"
+      - ./zitadel/config:/zitadel/config:ro
+      - ./zitadel/secrets:/zitadel/secrets:z
     depends_on:
       db:
         condition: 'service_healthy'
     ports:
       - '8080:8080'
+    healthcheck:
+      test: [ "CMD", "/app/zitadel", "ready", "--config", "/zitadel.yaml" ]
+      interval: '10s'
+      timeout: '5s'
+      retries: 5
+      start_period: '10s'
 
   db:
     restart: 'always'

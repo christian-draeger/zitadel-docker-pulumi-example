@@ -1,6 +1,7 @@
 FirstInstance:
-  # If set to true zitadel is setup without initial data
   Skip: false
+  # this one here is super important! key will not get generated if path not set
+  MachineKeyPath: /zitadel/secrets/machine-key.json # the path where the generated machine key is stored on zitadel instance
   InstanceName: ZITADEL
   DefaultLanguage: en
   Org:
@@ -16,8 +17,9 @@ FirstInstance:
       PreferredLanguage: en
     Machine:
       Machine:
+        # for some reason the machine key will only be generated if a machine user is created
         UserName: admin-sa
         Name: admin-sa
+      # necessary to create a machine key
       MachineKey:
-        Path: /machinekey/zitadel-admin-sa.json
         Type: 1
