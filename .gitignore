@@ -1,4 +1,3 @@
 .idea
-.iml
 /pulumi/bun.lockb
 /zitadel/secrets/machine-key.json
